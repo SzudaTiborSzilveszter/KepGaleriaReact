@@ -1,22 +1,31 @@
 import { useState } from 'react'
-import { KEPTIPUS, type KepTipus } from './adat'
+import { KEPLISTA} from './adat'
 import './App.css'
 import KisKep from './component/Galeria'
 import NagyKep from './component/NagyKep'
 
 function App() {
-  const [lista] =useState<KepTipus[]>(KEPTIPUS)
-  function kivalasztKezelo(index:number){
+  const [i,setI]=useState(0)
+  function kepKivalaszt(index:number){
     console.log(index)
+    setI(index)
+  }
+  function kepBalra(){
+    setI(index => (index - 1 + KEPLISTA.length) % KEPLISTA.length)
+  }
+  function kepJobbra(){
+    setI(index => (index + 1 + KEPLISTA.length) % KEPLISTA.length)
   }
   return (
     <>
       <header>Képek</header>
       <section>
-        <NagyKep kepem={KEPTIPUS[0]}/>
+        <button className="bal" onClick={kepBalra}>🠜</button>        
+        <NagyKep kepem={KEPLISTA[i]}/>
+        <button className="jobb" onClick={kepJobbra}>🠞</button>
       </section>
       <article>
-        <KisKep lista={lista} kivalasztKezelo={kivalasztKezelo}/>
+        <KisKep lista={KEPLISTA} kepKivalaszt={kepKivalaszt}/>
       </article>
       <footer><p>Szuda Tibor Szilveszter</p></footer>
     </>

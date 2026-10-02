@@ -4,13 +4,13 @@ import type { KepTipus } from "../adat"
 interface KepProps{
     kepem: KepTipus,
     index: number,
-    kivalasztKezelo:(index:number)=>void
+    kepKivalaszt:(index:number)=>void
 }
-export default function KisKep({kepem,index, kivalasztKezelo}:KepProps){
+export default function KisKep({kepem,index, kepKivalaszt}:KepProps){
     return(
         <>
             <div>
-                <img onClick={()=>{kivalasztKezelo(index)}} src={kepem.src} alt={kepem.title} />
+                <img onClick={()=>{kepKivalaszt(index)}} src={kepem.src} alt={kepem.title} />
             </div>
         </>
     )

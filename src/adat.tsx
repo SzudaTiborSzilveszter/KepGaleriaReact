@@ -4,7 +4,7 @@ export interface KepTipus{
     src: string
 }
 
-export const KEPTIPUS:KepTipus[]=[
+export const KEPLISTA:KepTipus[]=[
     {
         id: 1,
         title: "Michael Jordan",
